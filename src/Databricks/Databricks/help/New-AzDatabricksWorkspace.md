@@ -14,7 +14,7 @@ Creates a new workspace.
 
 ```
 New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> [-SubscriptionId <String>]
- -Location <String> [-ManagedResourceGroupName <String>] [-AmlWorkspaceId <String>]
+ -Location <String> -ComputeMode <String> [-ManagedResourceGroupName <String>] [-AmlWorkspaceId <String>]
  [-Authorization <IWorkspaceProviderAuthorization[]>] [-DefaultCatalogInitialType <InitialType>]
  [-EnableNoPublicIP] [-EncryptionKeyName <String>] [-EncryptionKeySource <KeySource>]
  [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>] [-LoadBalancerBackendPoolName <String>]
@@ -43,7 +43,7 @@ Creates a new workspace.
 
 ### Example 1: Create a Databricks workspace.
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t1 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t1 -Sku Premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t1 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -ManagedResourceGroupName azps_test_gp_kv_t1 -Sku Premium
 ```
 
 ```output
@@ -66,7 +66,7 @@ $testVN = New-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azp
 $vNetResId = (Get-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azps_test_gp_db).Subnets[0].Id
 $ruleSet = New-AzKeyVaultNetworkRuleSetObject -DefaultAction Allow -Bypass AzureServices -IpAddressRange "110.0.1.0/24" -VirtualNetworkResourceId $vNetResId
 New-AzKeyVault -ResourceGroupName azps_test_gp_db -VaultName azps-keyvault -NetworkRuleSet $ruleSet -Location eastus -Sku 'Premium' -EnablePurgeProtection
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t2 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t2 -VirtualNetworkId $testVN.Id -PrivateSubnetName $priSubnet.Name -PublicSubnetName $pubSubnet.Name -Sku Premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t2 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -ManagedResourceGroupName azps_test_gp_kv_t2 -VirtualNetworkId $testVN.Id -PrivateSubnetName $priSubnet.Name -PublicSubnetName $pubSubnet.Name -Sku Premium
 ```
 
 ```output
@@ -79,7 +79,7 @@ This command creates a Databricks workspace with customized virtual network in a
 
 ### Example 3: Create a Databricks workspace with enable encryption.
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t3 -ResourceGroupName azps_test_gp_db -Location eastus -PrepareEncryption -ManagedResourceGroupName azps_test_gp_kv_t3 -Sku premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t3 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -PrepareEncryption -ManagedResourceGroupName azps_test_gp_kv_t3 -Sku premium
 ```
 
 ```output
@@ -409,6 +409,21 @@ Aliases:
 Required: True
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ComputeMode
+The compute mode of the workspace
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: Named
+Default value: Hybrid
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
