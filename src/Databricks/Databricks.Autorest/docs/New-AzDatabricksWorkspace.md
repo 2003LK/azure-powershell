@@ -13,7 +13,7 @@ Creates a new workspace.
 ## SYNTAX
 
 ```
-New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> -Location <String>
+New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> -ComputeMode <String> -Location <String>
  [-SubscriptionId <String>] [-AccessConnectorId <String>] [-AccessConnectorIdentityType <IdentityType>]
  [-AccessConnectorUserAssignedIdentityId <String>] [-AmlWorkspaceId <String>]
  [-Authorization <IWorkspaceProviderAuthorization[]>] [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>]
@@ -40,20 +40,14 @@ Creates a new workspace.
 
 ## EXAMPLES
 
-### Example 1: Create a Databricks workspace.
+### -------------------------- EXAMPLE 1 --------------------------
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t1 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t1 -Sku Premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t1 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -ManagedResourceGroupName azps_test_gp_kv_t1 -Sku Premium
 ```
 
-```output
-Name                         ResourceGroupName Location Managed Resource Group ID
-----                         ----------------- -------- -------------------------
-azps-databricks-workspace-t1 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t1
-```
 
-This command creates a Databricks workspace.
 
-### Example 2: Create a Databricks workspace with a customized virtual network.
+### -------------------------- EXAMPLE 2 --------------------------
 ```powershell
 $dlg = New-AzDelegation -Name dbrdl -ServiceName "Microsoft.Databricks/workspaces"
 $rdpRule = New-AzNetworkSecurityRuleConfig -Name azps-network-security-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
@@ -65,30 +59,17 @@ $testVN = New-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azp
 $vNetResId = (Get-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azps_test_gp_db).Subnets[0].Id
 $ruleSet = New-AzKeyVaultNetworkRuleSetObject -DefaultAction Allow -Bypass AzureServices -IpAddressRange "110.0.1.0/24" -VirtualNetworkResourceId $vNetResId
 New-AzKeyVault -ResourceGroupName azps_test_gp_db -VaultName azps-keyvault -NetworkRuleSet $ruleSet -Location eastus -Sku 'Premium' -EnablePurgeProtection
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t2 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t2 -VirtualNetworkId $testVN.Id -PrivateSubnetName $priSubnet.Name -PublicSubnetName $pubSubnet.Name -Sku Premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t2 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -ManagedResourceGroupName azps_test_gp_kv_t2 -VirtualNetworkId $testVN.Id -PrivateSubnetName $priSubnet.Name -PublicSubnetName $pubSubnet.Name -Sku Premium
 ```
 
-```output
-Name                         ResourceGroupName Location Managed Resource Group ID
-----                         ----------------- -------- -------------------------
-azps-databricks-workspace-t2 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t2
-```
 
-This command creates a Databricks workspace with customized virtual network in a resource group.
 
-### Example 3: Create a Databricks workspace with enable encryption.
+### -------------------------- EXAMPLE 3 --------------------------
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t3 -ResourceGroupName azps_test_gp_db -Location eastus -PrepareEncryption -ManagedResourceGroupName azps_test_gp_kv_t3 -Sku premium
+New-AzDatabricksWorkspace -Name azps-databricks-workspace-t3 -ResourceGroupName azps_test_gp_db -Location eastus -ComputeMode Hybrid -PrepareEncryption -ManagedResourceGroupName azps_test_gp_kv_t3 -Sku premium
 ```
 
-```output
-Name                         ResourceGroupName Location Managed Resource Group ID
-----                         ----------------- -------- -------------------------
-azps-databricks-workspace-t3 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t3
-```
 
-This command creates a Databricks workspace and sets it to prepare for encryption.
-Please refer to the examples of Update-AzDatabricksWorkspace for more settings to encryption.
 
 ## PARAMETERS
 
@@ -173,7 +154,7 @@ The workspace provider authorizations.
 To construct, see NOTES section for AUTHORIZATION properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20240501.IWorkspaceProviderAuthorization[]
+Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20251001Preview.IWorkspaceProviderAuthorization[]
 Parameter Sets: (All)
 Aliases:
 
@@ -208,6 +189,22 @@ Parameter Sets: (All)
 Aliases: ComplianceSecurityProfileComplianceStandard
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ComputeMode
+The compute mode of the workspace.
+Possible values (case-insensitive): Hybrid, Serverless
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -907,7 +904,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20240501.IWorkspace
+### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20251001Preview.IWorkspace
 
 ## NOTES
 

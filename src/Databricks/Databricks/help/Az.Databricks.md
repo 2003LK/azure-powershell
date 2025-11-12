@@ -31,12 +31,6 @@ Creates or updates Azure Databricks Access Connector.
 ### [New-AzDatabricksVNetPeering](New-AzDatabricksVNetPeering.md)
 Creates vNet Peering for workspace.
 
-### [New-AzDatabricksWorkspace](New-AzDatabricksWorkspace.md)
-Creates a new workspace.
-
-### [New-AzDatabricksWorkspaceProviderAuthorizationObject](New-AzDatabricksWorkspaceProviderAuthorizationObject.md)
-Create an in-memory object for WorkspaceProviderAuthorization.
-
 ### [Remove-AzDatabricksAccessConnector](Remove-AzDatabricksAccessConnector.md)
 Deletes the Azure Databricks Access Connector.
 
@@ -48,10 +42,4 @@ Deletes the workspace.
 
 ### [Update-AzDatabricksAccessConnector](Update-AzDatabricksAccessConnector.md)
 Updates an Azure Databricks Access Connector.
-
-### [Update-AzDatabricksVNetPeering](Update-AzDatabricksVNetPeering.md)
-Update vNet Peering for workspace.
-
-### [Update-AzDatabricksWorkspace](Update-AzDatabricksWorkspace.md)
-Updates a workspace.
 

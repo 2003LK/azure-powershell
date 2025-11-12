@@ -22,18 +22,27 @@ Create an in-memory object for WorkspaceProviderAuthorization.
 
 ## EXAMPLES
 
-### Example 1: Create an in-memory object for WorkspaceProviderAuthorization.
+### Example 1: {{ Add title here }}
 ```powershell
-New-AzDatabricksWorkspaceProviderAuthorizationObject -PrincipalId 024d7367-0890-4ad3-8140-e37374722820 -RoleDefinitionId 2124844c-7e23-48cc-bc52-a3af25f7a4ae
+{{ Add code here }}
 ```
 
 ```output
-PrincipalId                          RoleDefinitionId
------------                          ----------------
-024d7367-0890-4ad3-8140-e37374722820 2124844c-7e23-48cc-bc52-a3af25f7a4ae
+{{ Add output here }}
 ```
 
-Create an in-memory object for WorkspaceProviderAuthorization.
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
@@ -77,7 +86,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20240501.WorkspaceProviderAuthorization
+### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20251001Preview.WorkspaceProviderAuthorization
 
 ## NOTES
 
