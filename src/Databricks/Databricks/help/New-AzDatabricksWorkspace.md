@@ -204,7 +204,7 @@ Accept wildcard characters: False
 Compliance standards associated with the workspace.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.ComplianceStandard[]
+Type: System.String
 Parameter Sets: (All)
 Aliases: ComplianceSecurityProfileComplianceStandard
 

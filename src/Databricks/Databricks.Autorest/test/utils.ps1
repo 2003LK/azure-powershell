@@ -78,9 +78,10 @@ function setupEnv() {
     $env.Add("resourceGroup", $resourceGroup)
     New-AzResourceGroup -Name $env.resourceGroup -Location $env.location
 
+    $env.Add("location2", "koreacentral")
     $resourceGroup2 = "auto-test-databricks2-" + (RandomString -allChars $false -len 2)
     $env.Add("resourceGroup2", $resourceGroup2)
-    New-AzResourceGroup -Name $env.resourceGroup2 -Location $env.location
+    New-AzResourceGroup -Name $env.resourceGroup2 -Location $env.location2
 
     $dlg = New-AzDelegation -Name dbrdl -ServiceName "Microsoft.Databricks/workspaces"
 

@@ -28,7 +28,7 @@ For information on how to develop for `Az.Databricks`, see [how-to.md](how-to.md
 > see https://aka.ms/autorest
 
 ``` yaml
-commit: 6ba91c339cf3023acc57e349986221933b40d687
+commit: c251aebb19d517303d1f0f1182aa2e36af99100a
 tag: package-2025-10-01-preview
 require:
   - $(this-folder)/../../readme.azure.noprofile.md
