@@ -275,9 +275,8 @@ function Update-AzDatabricksWorkspace {
         [Parameter()]
         [Alias('ComplianceSecurityProfileComplianceStandard')]
         [AllowEmptyCollection()]
-        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.ComplianceStandard])]
         [Microsoft.Azure.PowerShell.Cmdlets.Databricks.Category('Body')]
-        [Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.ComplianceStandard[]]
+        [System.String[]]
         # Compliance standards associated with the workspace.
         ${ComplianceStandard},
 

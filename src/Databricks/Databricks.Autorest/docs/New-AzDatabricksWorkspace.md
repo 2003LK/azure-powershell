@@ -1,5 +1,5 @@
 ---
-external help file: Az.Databricks-help.xml
+external help file:
 Module Name: Az.Databricks
 online version: https://learn.microsoft.com/powershell/module/az.databricks/new-azdatabricksworkspace
 schema: 2.0.0
@@ -13,27 +13,26 @@ Creates a new workspace.
 ## SYNTAX
 
 ```
-New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> [-SubscriptionId <String>]
- -Location <String> [-ComputeMode <String>] [-ManagedResourceGroupName <String>] [-AmlWorkspaceId <String>]
- [-Authorization <IWorkspaceProviderAuthorization[]>] [-DefaultCatalogInitialType <InitialType>]
- [-EnableNoPublicIP] [-EncryptionKeyName <String>] [-EncryptionKeySource <KeySource>]
- [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>] [-LoadBalancerBackendPoolName <String>]
+New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> -Location <String>
+ [-SubscriptionId <String>] [-AccessConnectorId <String>] [-AccessConnectorIdentityType <IdentityType>]
+ [-AccessConnectorUserAssignedIdentityId <String>] [-AmlWorkspaceId <String>]
+ [-Authorization <IWorkspaceProviderAuthorization[]>] [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>]
+ [-ComplianceStandard <String[]>] [-ComputeMode <String>] [-DefaultCatalogInitialType <InitialType>]
+ [-DefaultStorageFirewall <DefaultStorageFirewall>] [-EnableNoPublicIP] [-EncryptionKeyName <String>]
+ [-EncryptionKeySource <KeySource>] [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>]
+ [-EnhancedSecurityCompliance <ComplianceSecurityProfileValue>]
+ [-EnhancedSecurityMonitoring <EnhancedSecurityMonitoringValue>] [-LoadBalancerBackendPoolName <String>]
  [-LoadBalancerId <String>] [-ManagedDiskKeySource <EncryptionKeySource>]
  [-ManagedDiskKeyVaultPropertiesKeyName <String>] [-ManagedDiskKeyVaultPropertiesKeyVaultUri <String>]
  [-ManagedDiskKeyVaultPropertiesKeyVersion <String>] [-ManagedDiskRotationToLatestKeyVersionEnabled]
- [-ManagedServiceKeySource <EncryptionKeySource>] [-ManagedServicesKeyVaultPropertiesKeyName <String>]
- [-ManagedServicesKeyVaultPropertiesKeyVaultUri <String>]
+ [-ManagedResourceGroupName <String>] [-ManagedServiceKeySource <EncryptionKeySource>]
+ [-ManagedServicesKeyVaultPropertiesKeyName <String>] [-ManagedServicesKeyVaultPropertiesKeyVaultUri <String>]
  [-ManagedServicesKeyVaultPropertiesKeyVersion <String>] [-NatGatewayName <String>] [-PrepareEncryption]
  [-PrivateSubnetName <String>] [-PublicIPName <String>] [-PublicNetworkAccess <PublicNetworkAccess>]
- [-PublicSubnetName <String>] [-RequireInfrastructureEncryption] [-RequiredNsgRule <RequiredNsgRules>]
+ [-PublicSubnetName <String>] [-RequiredNsgRule <RequiredNsgRules>] [-RequireInfrastructureEncryption]
  [-Sku <String>] [-SkuTier <String>] [-StorageAccountName <String>] [-StorageAccountSku <String>]
  [-Tag <Hashtable>] [-UiDefinitionUri <String>] [-VirtualNetworkId <String>] [-VnetAddressPrefix <String>]
- [-EnhancedSecurityMonitoring <EnhancedSecurityMonitoringValue>]
- [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>] [-ComplianceStandard <ComplianceStandard[]>]
- [-EnhancedSecurityCompliance <ComplianceSecurityProfileValue>] [-AccessConnectorId <String>]
- [-AccessConnectorIdentityType <IdentityType>] [-AccessConnectorUserAssignedIdentityId <String>]
- [-DefaultStorageFirewall <DefaultStorageFirewall>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -204,7 +203,7 @@ Accept wildcard characters: False
 Compliance standards associated with the workspace.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.ComplianceStandard[]
+Type: System.String[]
 Parameter Sets: (All)
 Aliases: ComplianceSecurityProfileComplianceStandard
 
@@ -929,3 +928,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+

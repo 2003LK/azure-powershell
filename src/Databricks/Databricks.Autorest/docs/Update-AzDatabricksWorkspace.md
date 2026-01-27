@@ -1,49 +1,69 @@
 ---
-external help file: Az.Databricks-help.xml
+external help file:
 Module Name: Az.Databricks
-online version: https://learn.microsoft.com/powershell/module/az.databricks/new-azdatabricksworkspace
+online version: https://learn.microsoft.com/powershell/module/az.databricks/update-azdatabricksworkspace
 schema: 2.0.0
 ---
 
-# New-AzDatabricksWorkspace
+# Update-AzDatabricksWorkspace
 
 ## SYNOPSIS
-Creates a new workspace.
+Updates a workspace.
 
 ## SYNTAX
 
+### UpdateExpanded (Default)
 ```
-New-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> [-SubscriptionId <String>]
- -Location <String> [-ComputeMode <String>] [-ManagedResourceGroupName <String>] [-AmlWorkspaceId <String>]
- [-Authorization <IWorkspaceProviderAuthorization[]>] [-DefaultCatalogInitialType <InitialType>]
- [-EnableNoPublicIP] [-EncryptionKeyName <String>] [-EncryptionKeySource <KeySource>]
- [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>] [-LoadBalancerBackendPoolName <String>]
- [-LoadBalancerId <String>] [-ManagedDiskKeySource <EncryptionKeySource>]
+Update-AzDatabricksWorkspace -Name <String> -ResourceGroupName <String> [-SubscriptionId <String>]
+ [-AccessConnectorId <String>] [-AccessConnectorIdentityType <IdentityType>]
+ [-AccessConnectorUserAssignedIdentityId <String>] [-AmlWorkspaceId <String>]
+ [-Authorization <IWorkspaceProviderAuthorization[]>] [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>]
+ [-ComplianceStandard <String[]>] [-DefaultCatalogInitialType <InitialType>]
+ [-DefaultStorageFirewall <DefaultStorageFirewall>] [-EnableNoPublicIP] [-EncryptionKeyName <String>]
+ [-EncryptionKeySource <KeySource>] [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>]
+ [-EnhancedSecurityCompliance <ComplianceSecurityProfileValue>]
+ [-EnhancedSecurityMonitoring <EnhancedSecurityMonitoringValue>] [-KeyVaultKeyName <String>]
+ [-KeyVaultKeyVersion <String>] [-KeyVaultUri <String>] [-ManagedDiskKeySource <EncryptionKeySource>]
  [-ManagedDiskKeyVaultPropertiesKeyName <String>] [-ManagedDiskKeyVaultPropertiesKeyVaultUri <String>]
  [-ManagedDiskKeyVaultPropertiesKeyVersion <String>] [-ManagedDiskRotationToLatestKeyVersionEnabled]
  [-ManagedServiceKeySource <EncryptionKeySource>] [-ManagedServicesKeyVaultPropertiesKeyName <String>]
  [-ManagedServicesKeyVaultPropertiesKeyVaultUri <String>]
- [-ManagedServicesKeyVaultPropertiesKeyVersion <String>] [-NatGatewayName <String>] [-PrepareEncryption]
- [-PrivateSubnetName <String>] [-PublicIPName <String>] [-PublicNetworkAccess <PublicNetworkAccess>]
- [-PublicSubnetName <String>] [-RequireInfrastructureEncryption] [-RequiredNsgRule <RequiredNsgRules>]
- [-Sku <String>] [-SkuTier <String>] [-StorageAccountName <String>] [-StorageAccountSku <String>]
- [-Tag <Hashtable>] [-UiDefinitionUri <String>] [-VirtualNetworkId <String>] [-VnetAddressPrefix <String>]
- [-EnhancedSecurityMonitoring <EnhancedSecurityMonitoringValue>]
- [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>] [-ComplianceStandard <ComplianceStandard[]>]
- [-EnhancedSecurityCompliance <ComplianceSecurityProfileValue>] [-AccessConnectorId <String>]
+ [-ManagedServicesKeyVaultPropertiesKeyVersion <String>] [-PrepareEncryption]
+ [-PublicNetworkAccess <PublicNetworkAccess>] [-RequiredNsgRule <RequiredNsgRules>] [-SkuTier <String>]
+ [-Tag <Hashtable>] [-UiDefinitionUri <String>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
+```
+
+### UpdateViaIdentityExpanded
+```
+Update-AzDatabricksWorkspace -InputObject <IDatabricksIdentity> [-AccessConnectorId <String>]
  [-AccessConnectorIdentityType <IdentityType>] [-AccessConnectorUserAssignedIdentityId <String>]
- [-DefaultStorageFirewall <DefaultStorageFirewall>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-AmlWorkspaceId <String>] [-Authorization <IWorkspaceProviderAuthorization[]>]
+ [-AutomaticClusterUpdate <AutomaticClusterUpdateValue>] [-ComplianceStandard <String[]>]
+ [-DefaultCatalogInitialType <InitialType>] [-DefaultStorageFirewall <DefaultStorageFirewall>]
+ [-EnableNoPublicIP] [-EncryptionKeyName <String>] [-EncryptionKeySource <KeySource>]
+ [-EncryptionKeyVaultUri <String>] [-EncryptionKeyVersion <String>]
+ [-EnhancedSecurityCompliance <ComplianceSecurityProfileValue>]
+ [-EnhancedSecurityMonitoring <EnhancedSecurityMonitoringValue>] [-KeyVaultKeyName <String>]
+ [-KeyVaultKeyVersion <String>] [-KeyVaultUri <String>] [-ManagedDiskKeySource <EncryptionKeySource>]
+ [-ManagedDiskKeyVaultPropertiesKeyName <String>] [-ManagedDiskKeyVaultPropertiesKeyVaultUri <String>]
+ [-ManagedDiskKeyVaultPropertiesKeyVersion <String>] [-ManagedDiskRotationToLatestKeyVersionEnabled]
+ [-ManagedServiceKeySource <EncryptionKeySource>] [-ManagedServicesKeyVaultPropertiesKeyName <String>]
+ [-ManagedServicesKeyVaultPropertiesKeyVaultUri <String>]
+ [-ManagedServicesKeyVaultPropertiesKeyVersion <String>] [-PrepareEncryption]
+ [-PublicNetworkAccess <PublicNetworkAccess>] [-RequiredNsgRule <RequiredNsgRules>] [-SkuTier <String>]
+ [-Tag <Hashtable>] [-UiDefinitionUri <String>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm]
+ [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Creates a new workspace.
+Updates a workspace.
 
 ## EXAMPLES
 
-### Example 1: Create a Databricks workspace.
+### Example 1: Updates the tags of a Databricks workspace.
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t1 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t1 -Sku Premium
+Get-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t1 | Update-AzDatabricksWorkspace -Tag @{"key"="value"}
 ```
 
 ```output
@@ -52,21 +72,14 @@ Name                         ResourceGroupName Location Managed Resource Group I
 azps-databricks-workspace-t1 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t1
 ```
 
-This command creates a Databricks workspace.
+This command updates the tags of a Databricks workspace.
 
-### Example 2: Create a Databricks workspace with a customized virtual network.
+### Example 2: Enable encryption on a Databricks workspace.
 ```powershell
-$dlg = New-AzDelegation -Name dbrdl -ServiceName "Microsoft.Databricks/workspaces"
-$rdpRule = New-AzNetworkSecurityRuleConfig -Name azps-network-security-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
-$networkSecurityGroup = New-AzNetworkSecurityGroup -ResourceGroupName azps_test_gp_db -Location eastus -Name azps-network-security-group -SecurityRules $rdpRule
-$kvSubnet = New-AzVirtualNetworkSubnetConfig -Name azps-vnetwork-sub-kv -AddressPrefix "110.0.1.0/24" -ServiceEndpoint "Microsoft.KeyVault"
-$priSubnet = New-AzVirtualNetworkSubnetConfig -Name azps-vnetwork-sub-pri -AddressPrefix "110.0.2.0/24" -NetworkSecurityGroup $networkSecurityGroup -Delegation $dlg
-$pubSubnet = New-AzVirtualNetworkSubnetConfig -Name azps-vnetwork-sub-pub -AddressPrefix "110.0.3.0/24" -NetworkSecurityGroup $networkSecurityGroup -Delegation $dlg
-$testVN = New-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azps_test_gp_db -Location eastus -AddressPrefix "110.0.0.0/16" -Subnet $kvSubnet,$priSubnet,$pubSubnet
-$vNetResId = (Get-AzVirtualNetwork -Name azps-virtual-network -ResourceGroupName azps_test_gp_db).Subnets[0].Id
-$ruleSet = New-AzKeyVaultNetworkRuleSetObject -DefaultAction Allow -Bypass AzureServices -IpAddressRange "110.0.1.0/24" -VirtualNetworkResourceId $vNetResId
-New-AzKeyVault -ResourceGroupName azps_test_gp_db -VaultName azps-keyvault -NetworkRuleSet $ruleSet -Location eastus -Sku 'Premium' -EnablePurgeProtection
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t2 -ResourceGroupName azps_test_gp_db -Location eastus -ManagedResourceGroupName azps_test_gp_kv_t2 -VirtualNetworkId $testVN.Id -PrivateSubnetName $priSubnet.Name -PublicSubnetName $pubSubnet.Name -Sku Premium
+Update-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t2 -PrepareEncryption
+$updWsp = Get-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t2
+Set-AzKeyVaultAccessPolicy -VaultName azps-keyvault -ObjectId $updWsp.StorageAccountIdentityPrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Update-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t2 -EncryptionKeySource 'Microsoft.KeyVault' -EncryptionKeyVaultUri https://azps-keyvault.vault.azure.net/ -EncryptionKeyName azps-k1 -EncryptionKeyVersion a563a8021cba47109d93bd6d690621a7
 ```
 
 ```output
@@ -75,11 +88,20 @@ Name                         ResourceGroupName Location Managed Resource Group I
 azps-databricks-workspace-t2 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t2
 ```
 
-This command creates a Databricks workspace with customized virtual network in a resource group.
+Enabling encryption on a Databricks workspace takes three steps:
+1.Please make sure that KeyVault has Purge protection enabled.
+2.Update the workspace with `-PrepareEncryption` (if it was not created so).
+3.Find `StorageAccountIdentityPrincipalId` in the output of the last step and grant key permissions to the principal.
+4.Update the workspace again to fill in information about the encryption key:
+   - `-EncryptionKeySource`
+   - `-EncryptionKeyVaultUri`
+   - `-EncryptionKeyName`
+   - `-EncryptionKeyVersion`
+5.Important! Please read the information in the following document in detail: https://learn.microsoft.com/en-us/azure/databricks/security/keys/cmk-managed-services-azure/customer-managed-key-managed-services-azure?WT.mc_id=Portal-Microsoft_Azure_Databricks#--use-the-azure-portal
 
-### Example 3: Create a Databricks workspace with enable encryption.
+### Example 3: Disable encryption on a Databricks workspace.
 ```powershell
-New-AzDatabricksWorkspace -Name azps-databricks-workspace-t3 -ResourceGroupName azps_test_gp_db -Location eastus -PrepareEncryption -ManagedResourceGroupName azps_test_gp_kv_t3 -Sku premium
+Update-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t3 -EncryptionKeySource 'Default'
 ```
 
 ```output
@@ -88,8 +110,20 @@ Name                         ResourceGroupName Location Managed Resource Group I
 azps-databricks-workspace-t3 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t3
 ```
 
-This command creates a Databricks workspace and sets it to prepare for encryption.
-Please refer to the examples of Update-AzDatabricksWorkspace for more settings to encryption.
+To disable encryption, simply set `-EncryptionKeySource` to `'Default'`.
+
+### Example 4: Update NsgRule of the Databricks workspace.
+```powershell
+Update-AzDatabricksWorkspace -ResourceGroupName azps_test_gp_db -Name azps-databricks-workspace-t2 -RequiredNsgRule 'AllRules'
+```
+
+```output
+Name                         ResourceGroupName Location Managed Resource Group ID
+----                         ----------------- -------- -------------------------
+azps-databricks-workspace-t2 azps_test_gp_db   eastus   /subscriptions/{subId}/resourceGroups/azps_test_gp_kv_t2
+```
+
+This command updates NsgRule of the Databricks workspace.
 
 ## PARAMETERS
 
@@ -204,25 +238,9 @@ Accept wildcard characters: False
 Compliance standards associated with the workspace.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.ComplianceStandard[]
+Type: System.String[]
 Parameter Sets: (All)
 Aliases: ComplianceSecurityProfileComplianceStandard
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ComputeMode
-The compute mode of the workspace.
-Possible values (case-insensitive): Hybrid, Serverless
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
 
 Required: False
 Position: Named
@@ -248,8 +266,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultProfile
-The DefaultProfile parameter is not functional.
-Use the SubscriptionId parameter when available if executing the cmdlet against a different subscription.
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
 Type: System.Management.Automation.PSObject
@@ -294,7 +311,7 @@ Accept wildcard characters: False
 ```
 
 ### -EncryptionKeyName
-The name of KeyVault key.
+The name of Key Vault key.
 
 ```yaml
 Type: System.String
@@ -325,7 +342,7 @@ Accept wildcard characters: False
 ```
 
 ### -EncryptionKeyVaultUri
-The Uri of KeyVault.
+The URI (DNS name) of the Key Vault.
 
 ```yaml
 Type: System.String
@@ -384,45 +401,61 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LoadBalancerBackendPoolName
-The value which should be used for this field.
+### -InputObject
+Identity parameter.
+To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
 
 ```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -LoadBalancerId
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Location
-The geo-location where the resource lives
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
+Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.IDatabricksIdentity
+Parameter Sets: UpdateViaIdentityExpanded
 Aliases:
 
 Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -KeyVaultKeyName
+The name of KeyVault key.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -KeyVaultKeyVersion
+The version of KeyVault key.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -KeyVaultUri
+The Uri of KeyVault.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -505,21 +538,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ManagedResourceGroupName
-The managed resource group Id.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ManagedServiceKeySource
 The encryption keySource (provider).
 Possible values (case-insensitive): Microsoft.Keyvault
@@ -586,25 +604,10 @@ The name of the workspace.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases: WorkspaceName
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -NatGatewayName
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -627,40 +630,11 @@ Accept wildcard characters: False
 ```
 
 ### -PrepareEncryption
-The value which should be used for this field.
+Prepare the workspace for encryption.
+Enables the Managed Identity for managed storage account.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PrivateSubnetName
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PublicIPName
-The value which should be used for this field.
-
-```yaml
-Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -677,21 +651,6 @@ Set value to disabled to access workspace only via private link.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.Databricks.Support.PublicNetworkAccess
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PublicSubnetName
-The value which should be used for this field.
-
-```yaml
-Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -719,46 +678,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -RequireInfrastructureEncryption
-The value which should be used for this field.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ResourceGroupName
 The name of the resource group.
 The name is case insensitive.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Sku
-The SKU name.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -780,43 +709,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StorageAccountName
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -StorageAccountSku
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -SubscriptionId
 The ID of the target subscription.
-The value must be an UUID.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -843,36 +741,6 @@ Accept wildcard characters: False
 
 ### -UiDefinitionUri
 The blob URI where the UI definition file is located.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -VirtualNetworkId
-The value which should be used for this field.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -VnetAddressPrefix
-The value which should be used for this field.
 
 ```yaml
 Type: System.String
@@ -922,6 +790,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.IDatabricksIdentity
+
 ## OUTPUTS
 
 ### Microsoft.Azure.PowerShell.Cmdlets.Databricks.Models.Api20251001Preview.IWorkspace
@@ -929,3 +799,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+

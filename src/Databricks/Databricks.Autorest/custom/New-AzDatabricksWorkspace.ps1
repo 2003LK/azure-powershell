@@ -341,9 +341,8 @@ function New-AzDatabricksWorkspace {
         [Parameter()]
         [Alias('ComplianceSecurityProfileComplianceStandard')]
         [AllowEmptyCollection()]
-        [Microsoft.Azure.PowerShell.Cmdlets.Databricks.PSArgumentCompleterAttribute("NONE", "HIPAA", "PCI_DSS", "CYBER_ESSENTIAL_PLUS", "FEDRAMP_HIGH", "CANADA_PROTECTED_B", "IRAP_PROTECTED", "ISMAP", "HITRUST", "K_FSI", "GERMANY_C5", "GERMANY_TISAX")]
         [Microsoft.Azure.PowerShell.Cmdlets.Databricks.Category('Body')]
-        [System.String]
+        [System.String[]]
         # Compliance standards associated with the workspace.
         ${ComplianceStandard},
 
